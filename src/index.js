@@ -5,11 +5,11 @@ import { DB_NAME } from "./constant.js";
 import express from "express";
 import connectDB from "./db/db.js";
 import dotenv from "dotenv";
+import  {app}  from "./app.js";
 // configDotenv({ path: "./env" });
 dotenv.config({ path: "./.env" });
 connectDB()
 .then(() => {
-    const app = express();
     app.on("error", (error) => {
         console.log("Error", error);
         throw error;
@@ -22,6 +22,7 @@ connectDB()
     console.log("Error", error);
     throw error;
 });
+
 
 
 
